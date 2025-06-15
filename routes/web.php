@@ -3,6 +3,8 @@
 use App\Http\Controllers\Settings;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\GuardController;
+
 
 Route::get('/', function () {
     return view('main');
@@ -20,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('settings/password', [Settings\PasswordController::class, 'update'])->name('settings.password.update');
     Route::get('settings/appearance', [Settings\AppearanceController::class, 'edit'])->name('settings.appearance.edit');
     Route::resource('company',CompanyController::class);
+    Route::resource('guard',GuardController::class);
       
 });
 
